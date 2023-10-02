@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container">
+      <div class="class">
+        <h3 style="padding-left: 10px; margin: 15px; border-left: 4px solid green">
+          Quizzes<br/>Details
+        </h3>
+      </div>
+
+      <div id="toggle-container">
+        <div id="toggle-icon">
+          <div class="bar1"></div>
+          <div class="first"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <div class="bar4"></div>
+        </div>
+        <h3>OJT</h3>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="container container-space">
+  <div class="row">
+    <div class="col-md-8 searchbar">
+      <nav class="navbar">
+        <form class="d-flex" role="search">
+          <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </nav>
+    </div>
+    <div class="col-md-4 text-md-end">
+      <!-- Add data-bs-toggle and data-bs-target to trigger the modal -->
+      <button type="button" class="btn btn-outline-success btn-create-quiz" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success btn-create-quiz">Create Quiz</button>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">OJT Name</th>
+        <th scope="col">OJT</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Banch 25</td>
+        <td>Primmed</td>
+        <td>01-01-2023</td>
+        <td>01-01-2023</td>
+        <td>30 mint</td>
+        <td>
+          <button class="btn btn-success">Edit</button>
+          <button class="btn btn-danger mx-2">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add modal structure with an id -->
+<div class="modal" id="exampleModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Quiz</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container mt-5">
+          <!-- <form [formGroup]="form"> -->
+            <form [formGroup]="form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="field1" class="form-label">Field 1</label>
+                  <input type="text" class="form-control" id="field1" formControlName="field1">
+                </div>
+                <div class="mb-3">
+                  <label for="field2" class="form-label">Field 2</label>
+                  <input type="text" class="form-control" id="field2" formControlName="field2">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="field3" class="form-label">Field 3</label>
+                  <input type="text" class="form-control" id="field3" formControlName="field3">
+                </div>
+                <div class="mb-3">
+                  <label for="field4" class="form-label">Field 4</label>
+                  <input type="text" class="form-control" id="field4" formControlName="field4">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

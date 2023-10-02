@@ -1,0 +1,45 @@
+#toggle-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  #toggle-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .bar1, .bar2, .bar3, .bar4 {
+    background-color: green;
+    width: 25px;
+    height: 4px;
+    transition: 0.5s;
+   margin: 3px;
+ }
+
+  
+  h3 {
+    margin-left: 3px;
+ 
+  }
+  
+  /* Style the Create Quiz button */
+  .btn-create-quiz {
+    // background-color: green;
+    color: white;
+    padding: 5px;
+    margin-top: 6px;
+    align-items: center;
+    width: 200px;
+    font-size: large;
+  }
+  
+  .container-space{
+ margin-top: 40px;
+  border-width: 2px;
+  border-color: transparent transparent green transparent;
+  border-style: solid;
+  box-shadow: 0px 0px 5px 0px rgb(196, 196, 196); /* Add a black shadow on all sides */
+}
+  
