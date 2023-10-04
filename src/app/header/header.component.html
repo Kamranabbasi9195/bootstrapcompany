@@ -75,30 +75,62 @@
       <div class="modal-body">
         <div class="container mt-5">
           <!-- <form [formGroup]="form"> -->
-            <form [formGroup]="form">
+            <form [formGroup]="formvalue">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name <span class="text-danger">*</span> </label>
-                  <input type="text" class="form-control" id="field1" formControlName="field1">
+                  <input type="text" class="form-control" id="field1" formControlName="name">
                 </div>
                 <div class="mb-3">
                   <label for="OJT" class="form-label">Date <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control" id="field2" formControlName="field2">
+                  <input type="date" class="form-control" id="field2" formControlName="date">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
-                  <label for="OJT" class="form-label"> OJT <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="field3" formControlName="field3">
+                  <label for="OJT" class="form-label">OJT <span class="text-danger">*</span></label>
+                  <select class="form-select" id="field3" formControlName="ojt">
+                    <option value="option1">Primmed</option>
+                    <option value="option2">Tricare for life</option>
+                    <option value="option3">Full stack devolper</option>
+                  </select>
                 </div>
+                
                 <div class="mb-3">
                   <label for="Time" class="form-label">Time <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="field4" formControlName="field4">
+                  <input type="number" class="form-control" id="field4" formControlName="time">
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- check list -->
+            <div class="container checkbx mt-4">
+              <p class="text-danger text-sm">*None : Select AT Least 5 Question for Quiz</p>
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="item1">
+                  <label class="form-check-label" for="item1">Tricare is insurance for</label>
+              </div>
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="item2">
+                  <label class="form-check-label" for="item2">Medicaid is administered by </label>
+              </div>
+              <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="item3">
+                  <label class="form-check-label" for="item3">The difference between HMO and PPO plan</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="item3">
+                <label class="form-check-label" for="item3">The difference between HMO and PPO plan</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="item3">
+              <label class="form-check-label" for="item3">The difference between HMO and PPO plan</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="item3">
+            <label class="form-check-label" for="item3">The difference between HMO and PPO plan</label>
+        </div>
+          </div>
           </form>
         </div>
         
