@@ -14,7 +14,7 @@
           <div class="bar2"></div>
           <div class="bar3"></div>
           <div class="bar4"></div>
-        </div>
+        </div>s
         <h3>OJT</h3>
       </div>
     </div>
@@ -80,26 +80,26 @@
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="name" class="form-label">Name <span class="text-danger">*</span> </label>
-                  <input type="text" class="form-control" id="field1" formControlName="name">
+                  <input type="text" class="form-control" id="name" formControlName="name">
                 </div>
                 <div class="mb-3">
                   <label for="OJT" class="form-label">Date <span class="text-danger">*</span></label>
-                  <input type="date" class="form-control" id="field2" formControlName="date">
+                  <input type="date" class="form-control" id="date" formControlName="date">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="mb-3">
                   <label for="OJT" class="form-label">OJT <span class="text-danger">*</span></label>
-                  <select class="form-select" id="field3" formControlName="ojt">
-                    <option value="option1">Primmed</option>
-                    <option value="option2">Tricare for life</option>
-                    <option value="option3">Full stack devolper</option>
+                  <select class="form-select" id="ojt" formControlName="ojt">
+                    <option value="primmed">Primmed</option>
+                    <option value="tricare for life">Tricare for life</option>
+                    <option value="full stack devolper">Full stack devolper</option>
                   </select>
                 </div>
                 
                 <div class="mb-3">
                   <label for="Time" class="form-label">Time <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="field4" formControlName="time">
+                  <input type="number" class="form-control" id="time" formControlName="time">
                 </div>
               </div>
             </div>
@@ -137,7 +137,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"  (click)="modal.close('Close click')">Close</button>
-        <button type="button" class="btn btn-primary"  (click)="modal.close('Close click')">Save</button>
+        <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()" >Save</button>
       </div>
     </div>
  
