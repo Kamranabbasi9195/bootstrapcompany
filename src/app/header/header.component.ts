@@ -2,8 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Employeemodel } from './employee.dashboard.model';
-import { ApiService } from 'src/Services/api.service';
+import { ApiService } from '../shared/api.service';
+
 
 
 @Component({
@@ -13,36 +15,52 @@ import { ApiService } from 'src/Services/api.service';
 })
 export class HeaderComponent implements OnInit {
   employeeModelObj: Employeemodel = new Employeemodel();
-  formvalue!: FormGroup;
+  formValue!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private modalService: NgbModal,
-    private api: ApiService
-  ) {}
 
-  ngOnInit(): void {
-    this.formvalue = this.fb.group({
-      name: ['', Validators.required], // Add Validators.required for mandatory fields
+  constructor(private fb: FormBuilder, private modalService: NgbModal, private api: ApiService) {
+    this.formValue = this.fb.group({
+      name: [''],
       ojt: [''],
       date: [''],
-      time: [''],
+      time: ['']
     });
   }
 
+  ngOnInit(): void {
+    this.formValue = this.fb.group({
+      name: ['', Validators.required], // Add Validators.required for mandatory fields
+      ojt: ['', Validators.required],
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+    });
+  }
   postEmployeeDetails() {
-    if (this.formvalue.invalid) {
+    if (this.formValue.invalid) {
       // Form is invalid, do not submit
       return;
     }
   
-    this.employeeModelObj.name = this.formvalue.value.name;
-    this.employeeModelObj.ojt = this.formvalue.value.ojt;
-    this.employeeModelObj.date = this.formvalue.value.date;
-    this.employeeModelObj.time = this.formvalue.value.time;
+    this.employeeModelObj.name = this.formValue.value.name;
+    this.employeeModelObj.ojt = this.formValue.value.ojt;
+    this.employeeModelObj.date = this.formValue.value.date;
+    this.employeeModelObj.time = this.formValue.value.time;
   
-   
+    this.api.postEmployee(this.employeeModelObj)
+    .subscribe({
+      next: (res: any) => {
+        // Handle successful response
+        console.log(res);
+        alert("Employee added successfull")
+        this.formValue.reset();
+      },
+      error: (err: any) => {
+        // Handle error
+        alert("Please try again")
+      }
+    });
   }
+  
   open(content: any) {
     this.modalService
       .open(content, {
@@ -50,5 +68,5 @@ export class HeaderComponent implements OnInit {
         backdrop: 'static',
       })
     
-  }
-}
+  }}
+
