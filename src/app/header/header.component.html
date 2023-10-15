@@ -3,8 +3,7 @@
     <div class="container">
       <div class="class">
         <h3
-          style="padding-left: 10px; margin: 15px; border-left: 4px solid green"
-        >
+          style="padding-left: 10px; margin: 15px; border-left: 4px solid green">
           Quizzes<br />Details
         </h3>
       </div>
@@ -12,7 +11,6 @@
       <div id="toggle-container">
         <div id="toggle-icon">
           <div class="bar1"></div>
-          <div class="first"></div>
           <div class="bar2"></div>
           <div class="bar3"></div>
           <div class="bar4"></div>
@@ -32,20 +30,20 @@
             class="form-control me-1"
             type="search"
             placeholder="Search"
-            aria-label="Search"
-          />
+            aria-label="Search" />
         </form>
       </nav>
     </div>
     <div class="col-md-4 text-md-end">
-
       <!-- Add data-bs-toggle and data-bs-target to trigger the modal -->
       <button
+        (click)="clickAddEmployee()"
         type="button"
-        class="btn btn-outline-success btn-create-quiz"data-bs-toggle="modal"data-bs-target="#exampleModal"
+        class="btn btn-outline-success btn-create-quiz"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
         (click)="open(exampleModal)"
-        class="btn btn-success btn-create-quiz"
-      >
+        class="btn btn-success btn-create-quiz">
         Create Quiz
       </button>
     </div>
@@ -65,17 +63,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Banch 25</td>
-        <td>Primmed</td>
-        <td>01-01-2023</td>
-        <td>01-01-2023</td>
-        <td>30 mint</td>
+      <tr *ngFor="let row of emloyeeData">
+        <td>{{ row.id }}</td>
+        <td>{{ row.name }}</td>
+        <td>{{ row.ojt }}</td>
+        <td>{{ row.date }}</td>
+        <td>{{ row.time }}</td>
+
         <td>
-          <button class="btn btn-success" (click)="open(exampleModal)">
+          <button
+            (click)="onEdit(row); open(exampleModal)"
+            class="btn btn-success"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
             Edit
           </button>
-          <button class="btn btn-danger mx-2">Delete</button>
+          <button (click)="deleteEmployee(row)" class="btn btn-danger mx-2">
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
@@ -90,8 +96,7 @@
         type="button"
         class="btn-close"
         (click)="modal.close('Close click')"
-        aria-label="Close"
-      ></button>
+        aria-label="Close"></button>
     </div>
     <div class="modal-body">
       <div class="container mt-5">
@@ -100,33 +105,29 @@
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="name" class="form-label"
-                  >Name <span class="text-danger">*</span>
+                <label for="name" class="form-label">Name <span
+                    class="text-danger">*</span>
                 </label>
                 <input
                   type="text"
                   class="form-control"
                   id="name"
-                  formControlName="name"
-                />
+                  formControlName="name" />
               </div>
               <div class="mb-3">
-                <label for="OJT" class="form-label"
-                  >Date <span class="text-danger">*</span></label
-                >
+                <label for="OJT" class="form-label">Date <span
+                    class="text-danger">*</span></label>
                 <input
                   type="date"
                   class="form-control"
                   id="date"
-                  formControlName="date"
-                />
+                  formControlName="date" />
               </div>
             </div>
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="OJT" class="form-label"
-                  >OJT <span class="text-danger">*</span></label
-                >
+                <label for="OJT" class="form-label">OJT <span
+                    class="text-danger">*</span></label>
                 <select class="form-select" id="ojt" formControlName="ojt">
                   <option value="primmed">Primmed</option>
                   <option value="tricare for life">Tricare for life</option>
@@ -137,15 +138,13 @@
               </div>
 
               <div class="mb-3">
-                <label for="Time" class="form-label"
-                  >Time <span class="text-danger">*</span></label
-                >
+                <label for="Time" class="form-label">Time <span
+                    class="text-danger">*</span></label>
                 <input
                   type="number"
                   class="form-control"
                   id="time"
-                  formControlName="time"
-                />
+                  formControlName="time" />
               </div>
             </div>
           </div>
@@ -156,39 +155,34 @@
             </p>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item1" />
-              <label class="form-check-label" for="item1"
-                >Tricare is insurance for</label
-              >
+              <label class="form-check-label" for="item1">Tricare is insurance
+                for</label>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item2" />
-              <label class="form-check-label" for="item2"
-                >Medicaid is administered by
+              <label class="form-check-label" for="item2">Medicaid is
+                administered by
               </label>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item3" />
-              <label class="form-check-label" for="item3"
-                >The difference between HMO and PPO plan</label
-              >
+              <label class="form-check-label" for="item3">The difference between
+                HMO and PPO plan</label>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item3" />
-              <label class="form-check-label" for="item3"
-                >The difference between HMO and PPO plan</label
-              >
+              <label class="form-check-label" for="item3">The difference between
+                HMO and PPO plan</label>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item3" />
-              <label class="form-check-label" for="item3"
-                >The difference between HMO and PPO plan</label
-              >
+              <label class="form-check-label" for="item3">The difference between
+                HMO and PPO plan</label>
             </div>
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="item3" />
-              <label class="form-check-label" for="item3"
-                >The difference between HMO and PPO plan</label
-              >
+              <label class="form-check-label" for="item3">The difference between
+                HMO and PPO plan</label>
             </div>
           </div>
         </form>
@@ -198,16 +192,21 @@
       <button
         type="button"
         class="btn btn-secondary"
-        (click)="modal.close('Close click')"
-      >
+        id="cancel"
+        (click)="modal.close('Close click')">
         Close
       </button>
       <button
+        type="button"*ngIf="showAdd"
+        class="btn btn-primary"
+        (click)="postEmployeeDetails()">
+        Save
+      </button>
+      <button *ngIf="showupdate"
         type="button"
         class="btn btn-primary"
-        (click)="postEmployeeDetails()"
-      >
-        Save
+        (click)="updateEmployeeDetails()">
+        Update
       </button>
     </div>
   </div>

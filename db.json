@@ -1,26 +1,29 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": 4,
+      "name": "tamoor ",
+      "ojt": "tricare for life",
+      "date": "2023-10-05",
+      "time": 2
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 5,
+      "name": "Mujahid Hamdani sab",
+      "ojt": "full stack devolper",
+      "date": "2023-10-03",
+      "time": 10
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   },
-  "empolyee" :
-  {
-    "name": "kamran"
-
+  "empolyee": {
+    "id": 0,
+    "name": "Kamran Abbasi",
+    "ojt": "tricare for life",
+    "date": "2023-10-01",
+    "time": 2
   }
-  
-  
 }
